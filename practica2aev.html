@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASH&GO</title>
+    <link rel="stylesheet" href="practica2aev.css">
+
+</head>
+<body>
+    <audio controls autoplay loop class="audio-fondo">
+        <source src="tu-audio.ogg" type="audio/ogg">
+        <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <img src="beige.png" alt="Descripción de la imagen" style="width: 160px;">
+    <header class="header">
+        
+        <!-- Menú de la página -->
+        <img src="logo2.png" alt="Mujer" class="logo-woman">
+        <div class="menu">
+            <div class="dropdown">
+                <a href="#">Top Brands</a>       <!--Selector de atributo-->
+                <div class="dropdown-content">
+                    <a href="#">TRESemmé</a>
+                    <a href="#">Schwarzkopf</a>
+                    <a href="#">Moroccanoil</a>
+                    <a href="#">Salerm 21</a>
+                    <a href="#">Afro Love</a>
+                    <a href="#">Eco Styling Gel</a>
+                    <a href="#">Boé</a>
+                    <a href="#">Garnier</a>
+                    <a href="#">Professional</a>
+                </div>
+            </div>
+            <a href="#">Discover</a>
+            <a href="#">Vegan</a>
+            <a href="#">Shampoo</a>
+            <a href="#">Conditioner</a>
+            <a href="#">Treatment</a>
+            <a href="#">Leave-in</a>
+            <a href="#">Styling</a>
+        </div>
+        <div class="cart">
+            <img src="carrito.png" alt="Carrito">
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Buscar...">  <!--Selector de atributo-->
+            <button class="search-button" type="submit">🔍</button>
+        </div>
+    </header>
+
+
+    <!-- Carrusel de la página -->
+    <div class="slide">
+        <div class="slide-inner">
+            <input class="slide-open" type="radio" id="slide-1" 
+                  name="slide" aria-hidden="true" hidden="" checked="checked">
+            <div class="slide-item">
+                <img src="carrusel1.jpg">
+            </div>
+            <input class="slide-open" type="radio" id="slide-2" 
+                  name="slide" aria-hidden="true" hidden="">
+            <div class="slide-item">
+                <img src="carrusel2.jpg">
+            </div>
+            <input class="slide-open" type="radio" id="slide-3" 
+                  name="slide" aria-hidden="true" hidden="">
+            <div class="slide-item">
+                <img src="carrusel3.jpg">
+            </div>
+            <label for="slide-3" class="slide-control prev control-1">‹</label>
+            <label for="slide-2" class="slide-control next control-1">›</label>
+            <label for="slide-1" class="slide-control prev control-2">‹</label>
+            <label for="slide-3" class="slide-control next control-2">›</label>
+            <label for="slide-2" class="slide-control prev control-3">‹</label>
+            <label for="slide-1" class="slide-control next control-3">›</label>
+            <ol class="slide-indicador">
+                <li>
+                    <label for="slide-1" class="slide-circulo">•</label>
+                </li>
+                <li>
+                    <label for="slide-2" class="slide-circulo">•</label>
+                </li>
+                <li>
+                    <label for="slide-3" class="slide-circulo">•</label>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="productos-container">
+        <div class="producto">
+            <h2>Botanical Shampoo</h2>
+            <img src="champoo.png" alt="Champú">
+            <p>KaiCu</p>
+            <p class="precio-tachado">$20.00</p>
+            <p class="precio-negrita">$14.90</p>
+        </div>
+        <div class="producto">
+            <h2>Hair Mask</h2>
+            <img src="mask.webp" alt="Mask">
+            <p>Daviness</p>
+            <p class="precio-tachado">$41.00</p>
+            <p class "precio-negrita">$30.00</p>
+        </div>
+        <div class="producto">
+            <h2>Hair conditioner</h2>
+            <img src="conditioner.png" alt="conditioner">
+            <p>Natural Tech</p>
+            <p class="precio-tachado">$17.00</p>
+            <p class "precio-negrita">$10.50</p>
+        </div>
+        <div class="producto">
+            <h2>Oil-absolute</h2>
+            <img src="oil.png" alt="oil">
+            <p>Daviness</p>
+            <p class="precio-tachado">$21.00</p>
+            <p class "precio-negrita">$9.90</p>
+        </div>
+        <div class="producto">
+            <h2>Leave-in conditioner</h2>
+            <img src="conditioner2.png" alt="conditioner">
+            <p>Roger More</p>
+            <p class="precio-tachado">$19.50</p>
+            <p class "precio-negrita">$14.70</p>
+        </div>
+    </div>
+
+    
+    <input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="mobile-menu-icon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</label>
+
+<!-- Agrega la clase .menu a tu menú existente -->
+<div class="menu">
+    <!-- Contenido del menú -->
+    <a href="#">Top Brands</a>
+    <a href="#">Discover</a>
+    <a href="#">Vegan</a>
+    <a href="#">Shampoo</a>
+    <a href="#">Conditioner</a>
+    <a href="#">Treatment</a>
+    <a href="#">Leave-in</a>
+    <a href="#">Styling</a>
+</div>
+
+<!-- Resto del código HTML -->
+
+
+</body>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+    <div class="footer-section">     <!-- Ejemplo de selector de clase (.footer-section) -->
+        <ul>
+            <li><a href="#">PRIVACY POLICY</a></li>
+            <li><a href="#">TERMS & CONDITIONS</a></li>
+            <li><a href="#">ABOUT</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-section">
+        <ul>
+            <li><a href="#">SHIPPING INFO</a></li>
+            <li><a href="#">RETURNS/EXCHANGES</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-section social-icons">
+        <a href="#"><img src="fb.png" alt="Facebook"></a>
+        <a href="#"><img src="twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="instagram.png" alt="Instagram"></a>
+    </div>
+
+    <div class="footer-section2">
+        <p>SUBSCRIBE TO OUR NEWSLETTER</p>
+        <div class="subscribe-input">
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </div>
+    </div>
+</footer>
+
+</html>
