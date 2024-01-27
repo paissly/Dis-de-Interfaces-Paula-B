@@ -1,0 +1,474 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    font-family: 'century gothic';
+}
+
+header {
+    background: linear-gradient(to bottom, orange, #F2909A, #D05787);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border-radius: 20px; */
+    position: fixed; /* Hace que el menú sea fijo */
+    width: 99%;
+    top: 0;
+    z-index: 1; /*para que esté por encima de otros elementos */
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.content {
+    padding: 20px;
+}
+
+/*buscador y carrito */
+.search-cart {
+    display: flex;
+    align-items: center;
+}
+
+.search-cart input {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+/* Media query para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-icon {
+        font-size: 24px;
+        cursor: pointer;
+        display: block;
+    }
+
+    nav.mobile-menu {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        background: linear-gradient(to right, #FF6B6B, #FFD166);
+        z-index: 5;
+    }
+
+    #menu-toggle:checked + label.menu-icon + nav.mobile-menu {
+        display: block;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav.mobile-menu ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    nav.mobile-menu ul li {
+        margin-bottom: 10px;
+    }
+
+    nav.mobile-menu a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .search-cart input {
+        width: 100%;
+        margin-right: 0;
+    }
+
+
+
+
+    .mobile-menu-container {
+        position: relative; /* Ajusta la posición relativa */
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        background: linear-gradient(to right, #FF6B6B, #FFD166);
+        z-index: 5; /*para que el menú esté por encima del carrusel */
+    }
+
+    #menu-toggle:checked ~ .mobile-menu-container nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    header label.menu-icon {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    #menu-toggle {
+        display: none; 
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        background: linear-gradient(to right, #FF6B6B, #FFD166);
+        z-index: 5;
+    }
+
+    #menu-toggle:checked + label.menu-icon + nav {
+        display: flex;
+    }
+    footer {
+        padding: 15px 0;
+        font-size: 14px;
+    }
+
+    .footer-section {
+        margin-top: 20px;
+    }
+
+    ul {
+        text-align: left;
+    }
+
+    ul li {
+        margin-bottom: 8px;
+        font-size: 12px;
+    }
+
+    .social-icons img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Ajustes de espacio */
+    .footer-section2 {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    /* Ancho completo en dispositivos móviles */
+    /* input[type="email"] {
+        width: 100%;
+    } */
+    .subscribe-input input[type="email"] {
+        font-size: 12px;
+    }
+
+    
+}
+
+
+
+.logo-woman {
+    max-width: 8%;
+    width: 160px;
+    height: auto;
+    position: relative;
+    animation: logoAnimation 5s infinite alternate; /* Animación */
+}
+
+@keyframes logoAnimation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.slide {
+    position: relative;
+    margin: 0 auto; 
+    margin-top: 26px;
+}
+
+.slide-inner {
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    height: calc(500% + 3em);
+    margin: 0 auto; 
+}
+
+
+.slide-open:checked + .slide-item {
+    position: static;
+    opacity: 100;
+}
+
+.slide-item {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+.slide-item img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    border: none;
+}
+
+.slide-control {
+    background: rgba(0, 0, 0, 0.28);
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+}
+
+.slide-control.prev {
+    left: 2%;
+}
+
+.slide-control.next {
+    right: 2%;
+}
+
+.slide-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #aaaaaa;
+}
+
+#slide-1:checked ~ .control-1,
+#slide-2:checked ~ .control-2,
+#slide-3:checked ~ .control-3 {
+    display: block;
+}
+
+.slide-indicador {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.slide-indicador li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.slide-circulo {
+    color: #828282;
+    cursor: pointer;
+    display: block;
+    font-size: 35px;
+}
+
+.slide-circulo:hover {
+    color: #aaaaaa;
+}
+
+#slide-1:checked ~ .control-1 ~ .slide-indicador li:nth-child(1) .slide-circulo,
+#slide-2:checked ~ .control-2 ~ .slide-indicador li:nth-child(2) .slide-circulo,
+#slide-3:checked ~ .control-3 ~ .slide-indicador li:nth-child(3) .slide-circulo {
+    color: #ca42bc;
+}
+
+.titulo-destacado {
+    text-align: center;
+    font-size: 24px; /* Tamaño para pantallas más grandes */
+
+   
+    @media only screen and (max-width: 600px) {
+        font-size: 18px; 
+    }
+}
+
+#titulo {
+    width: 100%;
+    position: absolute;
+    padding: 0px;
+    margin: 0px auto;
+    text-align: center;
+    font-size: 27px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Open Sans', sans-serif;
+    z-index: 9999;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33),
+        -1px 0px 2px rgba(255, 255, 255, 0);
+}
+
+/* para centrar los productos */
+.product-container-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.product {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 200px; 
+}
+
+.product img {
+    max-width: 70%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+.precio-tachado {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.precio-negrita {
+    font-weight: bold;
+    color: #333;
+}
+
+/* TAMAÑO LETRAS PRODUCTOS */
+.product h2 {
+    font-size: 10px; 
+}
+
+.product p {
+    font-size: 8px; 
+}
+
+.precio-tachado, .precio-negrita {
+    font-size: 16px; 
+}
+
+/* PIE DE PÁGINA */
+.social-icons {
+    display: flex;
+    margin-top: 40px;
+}
+
+.social-icons a {
+    margin-right: 10px; 
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px; 
+}
+
+/* Estilos del footer */
+footer {
+    background-color: beige;
+    color: rgb(15, 15, 15);
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: 80px;
+    border-top: 2px solid #828282;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'century gothic';
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* sección de suscripción */
+.subscribe-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscribe-input {
+    display: flex;
+    align-items: center;
+}
+
+input[type="email"] {
+    padding: 5px;
+    width: 80%;
+}
+
+button {
+    background-color: rgb(76, 76, 76);
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* sección 2 del footer*/
+.footer-section2 {
+    background-color: #ffffff;
+    border-radius: 6px;
+    margin: 20px;
+    padding: 20px;
+}
