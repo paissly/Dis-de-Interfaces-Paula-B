@@ -52,7 +52,8 @@ function create() {
         frameRete: 10, //se ejecuta a velocidad de 10 fotogramas por segundo
         repeat: -1
     });
-}
+
+
     this.anims.create({
         key: 'turn',
         frames: [ {key:'dude',frame:4} ],
@@ -68,6 +69,11 @@ function create() {
     });
 
 
+player.body.setGravityY(300); //la velocidad con la que cae el muñeco
+
+
+this.physics.add.collider(player,platforms);//detecta colisiones entre el jugador y las plataformas
+}
 function update() {
 
 
