@@ -69,12 +69,34 @@ function create() {
     });
 
 
-player.body.setGravityY(300); //la velocidad con la que cae el muñeco
+// player.body.setGravityY(300); //la velocidad con la que cae el muñeco
 
 
 this.physics.add.collider(player,platforms);//detecta colisiones entre el jugador y las plataformas
+cursors = this.input.keyboard.createCursorKeys();
+
+
+
+
+
+
 }
 function update() {
+    if(cursors.left.isDown){ //para cuando la tecla left esté presionada
+        player.setVelocityX(-160);
+        player.anims.play('left', true);
+    }else if(cursors.right.isDown){
+        player.setVelocityX(160);
+        player.anims.play('right', true);//para cuando la tecla right esté presionada
+    } else {
+        player.setVelocityX(0);
+        player.anims.play('turn'); //para cuando el muñeco está quieto
+    }
+
+
+    if(cursors.up.isDown && player.body.touching.down){ //para que el muñeco salte
+        player.setVelocityY(-330);
+    }
 
 
 }
