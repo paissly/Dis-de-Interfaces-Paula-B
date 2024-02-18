@@ -9,8 +9,8 @@ var config = {
     physics:{
         default: 'arcade',
         arcade: {
-            gravity: { y: 300}
-            // debug: false
+            gravity: { y: 300},
+            debug: false
         }
     },
     scene: {
@@ -49,7 +49,7 @@ function create() {
     this.anims.create({
         key: 'left',
         frames: this.anims.generateFrameNumbers('dude',{start: 0, end: 3}),
-        frameRete: 10, //se ejecuta a velocidad de 10 fotogramas por segundo
+        frameRate: 10, //se ejecuta a velocidad de 10 fotogramas por segundo
         repeat: -1
     });
 
@@ -57,14 +57,14 @@ function create() {
     this.anims.create({
         key: 'turn',
         frames: [ {key:'dude',frame:4} ],
-        frameRete: 20, //se ejecuta a velocidad de 20 fotogramas por segundo
+        frameRate: 20, //se ejecuta a velocidad de 20 fotogramas por segundo
     });
 
 
     this.anims.create({
         key: 'right',
         frames: this.anims.generateFrameNumbers('dude',{start: 5, end: 8}),
-        frameRete: 10, //se ejecuta a velocidad de 10 fotogramas por segundo
+        frameRate: 10, //se ejecuta a velocidad de 10 fotogramas por segundo
         repeat: -1
     });
 
@@ -76,8 +76,20 @@ this.physics.add.collider(player,platforms);//detecta colisiones entre el jugado
 cursors = this.input.keyboard.createCursorKeys();
 
 
+stars = this.physics.add.group({
+    key: 'star',
+    repeat: 11, //se repite 11 veces por lo tanto habrá 12 estrellas
+    setXY: {x:12, y:0, stepX:70}
+});
 
 
+stars.children.iterate(function(child){
+    child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+});
+this.physics.add.collider(stars, platforms);
+
+
+this.physics.add.overlap(player, stars, collectStar, null, true);//deshabilita las estrellas, desaparecen cuando el muñeco las toca
 
 
 }
@@ -100,3 +112,10 @@ function update() {
 
 
 }
+
+
+function collectStar(player, star){
+    star.disableBody(true, true);
+}
+
+
