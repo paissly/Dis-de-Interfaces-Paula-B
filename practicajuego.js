@@ -19,6 +19,12 @@ var config = {
         update: update
     }
 };
+
+
+var score = 0;
+var scoreText;
+
+
 var game = new Phaser.Game(config);
 
 
@@ -92,6 +98,9 @@ this.physics.add.collider(stars, platforms);
 this.physics.add.overlap(player, stars, collectStar, null, true);//deshabilita las estrellas, desaparecen cuando el muñeco las toca
 
 
+scoreText= this.add.text(16, 16, 'Score: 0', {fontSize: '32px', fill:'#000' });
+
+
 }
 function update() {
     if(cursors.left.isDown){ //para cuando la tecla left esté presionada
@@ -116,6 +125,10 @@ function update() {
 
 function collectStar(player, star){
     star.disableBody(true, true);
+
+
+    score += 10;
+    scoreText.setText('Score: '+ score);
 }
 
 
