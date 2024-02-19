@@ -23,6 +23,7 @@ var config = {
 
 var score = 0;
 var scoreText;
+var gameOver= false;
 
 
 var game = new Phaser.Game(config);
@@ -101,8 +102,18 @@ this.physics.add.overlap(player, stars, collectStar, null, true);//deshabilita l
 scoreText= this.add.text(16, 16, 'Score: 0', {fontSize: '32px', fill:'#000' });
 
 
+bombs=this.physics.add.group();
+this.physics.add.collider(bombs, platforms);
+this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
+
+
 function update() {
+    if(gameOver){ //Si la bomba toca al muñeco, este para y deja de hacer la animación
+        return
+    }
+
+
     if(cursors.left.isDown){ //para cuando la tecla left esté presionada
         player.setVelocityX(-160);
         player.anims.play('left', true);
@@ -129,6 +140,26 @@ function collectStar(player, star){
 
     score += 10;
     scoreText.setText('Score: '+ score);
+
+
+    if(stars.countActive(true) === 0){ //saber cuantas estrellas quedan, si no queda ninguna se ejecuta lo siguiente:
+        stars.children.iterate(function(child){
+            child.enableBody(true, child.x, 0, true, true);
+        });
+
+
+        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        var bomb = bombs.create(x, 16, 'bomb');
+        bomb.setBounce(1);
+        bomb.setCollideWorldBounds(true);
+        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+    }
 }
 
 
+function hitBomb(player, bomb){
+    this.physics.pause(); //se para el juego cuando una bomba colisione con el muñeco
+    player.setTint(0xff0000);//el muñeco se vuelve rojo cuando le matan
+    player.anims.play('turn');
+    gameOver = true;
+}
