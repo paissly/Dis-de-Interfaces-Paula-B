@@ -1,0 +1,121 @@
+
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('assets/fondo2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#juego-container {
+    position: relative;
+}
+
+#juego-wrapper {
+    background-color: #000; 
+}
+
+
+/* Estilos para el mensaje de Game Over */
+.game-over-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefeb3;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.game-over-message p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos específicos para el texto "¡Lo harás mejor a la próxima!" */
+.game-over-message p:first-child {
+    font-size: 32px;
+    font-family: 'Press Start 2P', cursive;
+    color: orange;
+}
+
+/* Estilos específicos para el texto "¡Lo harás mejor a la próxima!" */
+.game-over-message p:last-child {
+    font-size: 18px;
+}
+
+.game-over-message button {
+    background-color: #db8734;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.game-over-message button:hover {
+    background-color: #db8734;
+}
+
+#start-container {
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-content {
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+#play-button {
+    font-size: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#star-counter {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#star-count-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: #fff;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+#star-count {
+    margin: 0;
+}
