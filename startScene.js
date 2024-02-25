@@ -7,44 +7,47 @@ class StartScene extends Phaser.Scene {
 
     preload() {
         // Carga la imagen de fondo para la pantalla de inicio
-        this.load.image('background', 'assets/sky.png');
+        this.load.image('background', 'assets/inicio.png');
     }
 
     create() {
         // Configura la pantalla de inicio con una imagen de fondo
         const background = this.add.image(400, 300, 'background').setDisplaySize(800, 600); // Ajusta el tamaño según tus necesidades
 
-        const titleText = this.add.text(400, 150, 'COUNTSTARS', {
+        const titleText = this.add.text(400, 150,  {
             fontSize: '48px',
             fill: '#000',
             fontFamily: "'Press Start 2P', cursive",
         }).setOrigin(0.5);
 
         // Agrega un botón para mostrar las instrucciones
-        const instructionsButton = this.add.text(400, 300, 'Instrucciones', {
+        const instructionsButton = this.add.text(400, 350, 'Instrucciones', {
             fontSize: '24px',
             fill: '#ffA500', // Cambia el color a naranja (formato hexadecimal)
             fontFamily: "'Press Start 2P', cursive",
         })
         .setInteractive()
-        .on('pointerdown', function () {
+        .on('pointerdown', () => {
             // Muestra el cuadro de instrucciones al hacer clic en el botón
             instructionsBackground.setVisible(true);
             instructionsText.setVisible(true);
         })
         .setOrigin(0.5);
 
-        // Agrega un botón para iniciar el juego
-        const playButton = this.add.text(400, 400, 'Jugar', {
+        // Agrega un botón para iniciar el juego con una promesa
+        const playButton = this.add.text(400, 450, 'Jugar', {
             fontSize: '32px',
             fill: '#ffA500', // Cambia el color a naranja (formato hexadecimal)
             fontFamily: "'Press Start 2P', cursive",
         })
         .setInteractive()
-        .on('pointerdown', function () {
+        .on('pointerdown', async () => {
+            // Utiliza una Promesa para simular algún proceso antes de iniciar el juego
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
             // Inicia la escena del juego cuando se hace clic en el botón "Jugar"
             this.scene.start('MainScene');
-        }, this)
+        })
         .setOrigin(0.5);
 
         // Agrega un fondo de color para las instrucciones (inicialmente oculto)
